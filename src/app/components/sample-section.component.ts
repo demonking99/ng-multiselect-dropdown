@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'sample-section',
+  selector: 'app-sample-section',
   templateUrl: './sample-section.component.html'
 })
-export class SampleSectionComponent{
+export class SampleSectionComponent {
   @Input() public desc: any;
 }

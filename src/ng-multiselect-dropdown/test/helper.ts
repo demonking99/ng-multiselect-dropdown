@@ -1,10 +1,10 @@
 import { Type } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TestBed, ComponentFixture, tick } from '@angular/core/testing';
-import { NgMultiSelectDropDownModule } from './../src/ng-multiselect-dropdown-angular7.module';
+import { NgMultiSelectDropDownModule } from '../src/ng-multiselect-dropdown.module';
 
 export function newEvent(eventName: string, bubbles = false, cancelable = false) {
-    let evt = document.createEvent('CustomEvent'); // MUST be 'CustomEvent'
+    const evt = document.createEvent('CustomEvent'); // MUST be 'CustomEvent'
     evt.initCustomEvent(eventName, bubbles, cancelable, null);
     return evt;
 }

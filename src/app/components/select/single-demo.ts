@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'single-demo',
+  selector: 'app-single-demo',
   templateUrl: './single-demo.html'
 })
 export class SingleDemoComponent implements OnInit {
@@ -11,20 +11,20 @@ export class SingleDemoComponent implements OnInit {
   closeDropdownSelection = false;
   disabled = false;
   htmlCode = `
-   &lt;ng-multiselect-dropdown-angular7
+   &lt;ng-multiselect-dropdown
        name="city"
        [data]="cities"
        [(ngModel)]="selectedItem"
        [settings]="dropdownSettings"
        (onSelect)="onItemSelect($event)"
        [disabled]="disabled"
-   &lt;/ng-multiselect-dropdown-angular7&gt;
+   &lt;/ng-multiselect-dropdown&gt;
 `;
   typescriptCode = `
     import { Component, OnInit } from '@angular/core';
 
     @Component({
-        selector: 'single-demo',
+        selector: 'app-single-demo',
         templateUrl: './single-demo.html'
     })
     export class SingleDemoComponent implements OnInit {

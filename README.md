@@ -1,14 +1,13 @@
 # Angular Multiselect Dropdown
 
-[![npm version](https://img.shields.io/npm/v/ng-multiselect-dropdown-angular7.svg)](https://www.npmjs.com/package/ng-multiselect-dropdown-angular7)
-[![downloads](https://img.shields.io/npm/dt/ng-multiselect-dropdown-angular7.svg)](https://www.npmjs.com/package/ng-multiselect-dropdown-angular7)
-[![downloads](https://img.shields.io/npm/dm/ng-multiselect-dropdown-angular7.svg)](https://www.npmjs.com/package/ng-multiselect-dropdown-angular7)
+[![npm version](https://img.shields.io/npm/v/ng-multiselect-dropdown.svg)](https://www.npmjs.com/package/ng-multiselect-dropdown-angular-latest)
+[![downloads](https://img.shields.io/npm/dt/ng-multiselect-dropdown.svg)](https://www.npmjs.com/package/ng-multiselect-dropdown-angular-latest)
+[![downloads](https://img.shields.io/npm/dm/ng-multiselect-dropdown.svg)](https://www.npmjs.com/package/ng-multiselect-dropdown-angular-latest)
 
 Angular multiselect dropdown component for web applications. Easy to integrate and use. It can be bind to any custom data source.
 
 ## DISCLAIMER
 --------------------
-## THIS PROJECT IN BETA STAGE USE AT YOUR OWN RISK
 
 ## Features
 
@@ -21,13 +20,13 @@ Angular multiselect dropdown component for web applications. Easy to integrate a
 ### Installation
 
 ```
-npm i ng-multiselect-dropdown-angular7 --save
+npm i ng-multiselect-dropdown-latest --save
 ```
 
-And then include it in your module (see [app.module.ts](https://github.com/demonking99/ng-multiselect-dropdown/blob/master/src/app/app.module.ts)):
+And then include it in your module (see [app.module.ts](https://github.com/haison8x/ng-multiselect-dropdown-latest/blob/master/src/app/app.module.ts)):
 
 ```ts
-import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown-angular7';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 // ...
 
 @NgModule({
@@ -81,7 +80,7 @@ export class AppComponent implements OnInit {
 ```
 
 ```html
-<ng-multiselect-dropdown-angular7
+<ng-multiselect-dropdown
   [placeholder]="'custom placeholder'"
   [data]="dropdownList"
   [(ngModel)]="selectedItems"
@@ -89,7 +88,7 @@ export class AppComponent implements OnInit {
   (onSelect)="onItemSelect($event)"
   (onSelectAll)="onSelectAll($event)"
 >
-</ng-multiselect-dropdown-angular7>
+</ng-multiselect-dropdown>
 ```
 
 ### Settings

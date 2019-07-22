@@ -1,26 +1,24 @@
 {
-  "name": "ng-multiselect-dropdown-angular7",
+  "name": "ng-multiselect-dropdown-latest",
   "version": "0.1.0",
   "description": "Angular Multi-Select Dropdown",
   "keywords": [
-    "angular7",
     "angular multiselect dropdown",
-    "angular7 multiselect dropdown",
-    "ng7 multiselect dropdown"
+    "ng multiselect dropdown"
   ],
-  "author": "Demon King",
+  "author": "haison8x",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/demonking99/ng-multiselect-dropdown-angular7.git"
+    "url": "git+ssh://git@github.com/haison8x/ng-multiselect-dropdown-latest.git"
   },
   "bugs": {
-    "url": "https://github.com/demonking99/ng-multiselect-dropdown-angular7/issues"
+    "url": "https://github.com/haison8x/ng-multiselect-dropdown-latest/issues"
   },
-  "homepage": "demonking99/ng-multiselect-dropdown-angular7#readme",
+  "homepage": "haison8x/ng-multiselect-dropdown-latest#readme",
   "peerDependencies": {
-    "@angular/common": "^7.2.15",
-    "@angular/core": "^7.2.15",
-    "@angular/forms": "^7.2.15"
+    "@angular/common": "^8.1.2",
+    "@angular/core": "^8.1.2",
+    "@angular/forms": "^8.1.2"
   }
 }

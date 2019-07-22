@@ -8,8 +8,8 @@ import { createTestingModule, tickAndDetectChanges } from './helper';
 @Component({
   template: ``
 })
-class Ng2MultiSelectDropdownSingleSelect {
-  @ViewChild(MultiSelectComponent)
+class MultiSelectDropdownSingleSelectComponent {
+  @ViewChild(MultiSelectComponent, { static: false })
   select: MultiSelectComponent;
   cities = [
     { item_id: 1, item_text: 'Mumbai' },
@@ -34,8 +34,8 @@ class Ng2MultiSelectDropdownSingleSelect {
 @Component({
   template: ``
 })
-class Ng2MultiSelectDropdownMultipleSelect {
-  @ViewChild(MultiSelectComponent)
+class MultiSelectDropdownMultipleSelectComponent {
+  @ViewChild(MultiSelectComponent, { static: false })
   select: MultiSelectComponent;
   cities = [
     { item_id: 1, item_text: 'Mumbai' },
@@ -44,10 +44,7 @@ class Ng2MultiSelectDropdownMultipleSelect {
     { item_id: 4, item_text: 'Navsari' },
     { item_id: 5, item_text: 'New Delhi' }
   ];
-  selectedItem = [
-    { item_id: 1, item_text: 'Mumbai' },
-    { item_id: 4, item_text: 'Navsari' }
-  ];
+  selectedItem = [{ item_id: 1, item_text: 'Mumbai' }, { item_id: 4, item_text: 'Navsari' }];
   dropdownSettings = {
     singleSelection: false,
     idField: 'item_id',
@@ -62,16 +59,16 @@ class Ng2MultiSelectDropdownMultipleSelect {
 }
 describe('ng-multiselect-component', function() {
   describe('Single Selection', () => {
-    let fixture: ComponentFixture<Ng2MultiSelectDropdownSingleSelect>;
+    let fixture: ComponentFixture<MultiSelectDropdownSingleSelectComponent>;
     beforeEach(fakeAsync(() => {
       fixture = createTestingModule(
-        Ng2MultiSelectDropdownSingleSelect,
+        MultiSelectDropdownSingleSelectComponent,
         `<div class='container'>
-          <ng-multiselect-dropdown-angular7 name="city" [data]="cities"
+          <ng-multiselect-dropdown name="city" [data]="cities"
       [(ngModel)]="selectedItem" [settings]="dropdownSettings"
       (onSelect)="onItemSelect($event)"
       [disabled]="disabled">
-    </ng-multiselect-dropdown-angular7>
+    </ng-multiselect-dropdown>
     </div>`
       );
     }));
@@ -159,16 +156,16 @@ describe('ng-multiselect-component', function() {
     }));
   });
   describe('Multiple Selection', () => {
-    let fixture: ComponentFixture<Ng2MultiSelectDropdownMultipleSelect>;
+    let fixture: ComponentFixture<MultiSelectDropdownMultipleSelectComponent>;
     beforeEach(fakeAsync(() => {
       fixture = createTestingModule(
-        Ng2MultiSelectDropdownMultipleSelect,
+        MultiSelectDropdownMultipleSelectComponent,
         `<div class='container'>
-          <ng-multiselect-dropdown-angular7 name="city" [data]="cities"
+          <ng-multiselect-dropdown name="city" [data]="cities"
       [(ngModel)]="selectedItem" [settings]="dropdownSettings"
       (onSelect)="onItemSelect($event)"
       [disabled]="disabled">
-    </ng-multiselect-dropdown-angular7>
+    </ng-multiselect-dropdown>
     </div>`
       );
     }));

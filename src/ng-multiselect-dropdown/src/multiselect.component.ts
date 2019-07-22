@@ -18,10 +18,10 @@ export const DROPDOWN_CONTROL_VALUE_ACCESSOR: any = {
   useExisting: forwardRef(() => MultiSelectComponent),
   multi: true
 };
-const noop = () => { };
+const noop = () => {};
 
 @Component({
-  selector: 'ng-multiselect-dropdown-angular7',
+  selector: 'ng-multiselect-dropdown',
   templateUrl: './multi-select.component.html',
   styleUrls: ['./multi-select.component.scss'],
   providers: [DROPDOWN_CONTROL_VALUE_ACCESSOR],
@@ -32,8 +32,8 @@ export class MultiSelectComponent implements ControlValueAccessor {
   public _data: Array<ListItem> = [];
   public selectedItems: Array<ListItem> = [];
   public isDropdownOpen = true;
-  @ViewChild('dropdownBtn') dropdownbtn: ElementRef;
-  @ViewChild('Section') Section: ElementRef;
+  @ViewChild('dropdownBtn', { static: false }) dropdownbtn: ElementRef;
+  @ViewChild('Section', { static: false }) Section: ElementRef;
 
   _placeholder = 'Select';
   filter: ListItem = new ListItem(this.data);
@@ -81,16 +81,10 @@ export class MultiSelectComponent implements ControlValueAccessor {
     if (!value) {
       this._data = [];
     } else {
-      // const _items = value.filter((item: any) => {
-      //   if (typeof item === 'string' || (typeof item === 'object' && item && item[this._settings.idField] && item[this._settings.textField])) {
-      //     return item;
-      //   }
-      // });
-      this._data = value.map(
-        (item: any) =>
-          typeof item === 'string'
-            ? new ListItem(item)
-            : new ListItem({
+      this._data = value.map((item: any) =>
+        typeof item === 'string'
+          ? new ListItem(item)
+          : new ListItem({
               id: item[this._settings.idField],
               text: item[this._settings.textField]
             })
@@ -98,21 +92,21 @@ export class MultiSelectComponent implements ControlValueAccessor {
     }
   }
 
-  @Output('onFilterChange')
+  @Output()
   onFilterChange: EventEmitter<ListItem> = new EventEmitter<any>();
-  @Output('onDropDownClose')
+  @Output()
   onDropDownClose: EventEmitter<ListItem> = new EventEmitter<any>();
 
-  @Output('onSelect')
+  @Output()
   onSelect: EventEmitter<ListItem> = new EventEmitter<any>();
 
-  @Output('onDeSelect')
+  @Output()
   onDeSelect: EventEmitter<ListItem> = new EventEmitter<any>();
 
-  @Output('onSelectAll')
+  @Output()
   onSelectAll: EventEmitter<Array<ListItem>> = new EventEmitter<Array<any>>();
 
-  @Output('onDeSelectAll')
+  @Output()
   onDeSelectAll: EventEmitter<Array<ListItem>> = new EventEmitter<Array<any>>();
 
   private onTouchedCallback: () => void = noop;
@@ -122,7 +116,7 @@ export class MultiSelectComponent implements ControlValueAccessor {
     this.onFilterChange.emit($event);
   }
 
-  constructor(private cdr: ChangeDetectorRef) { }
+  constructor(private cdr: ChangeDetectorRef) {}
 
   onItemClick($event: any, item: ListItem) {
     if (this.disabled) {
@@ -132,8 +126,7 @@ export class MultiSelectComponent implements ControlValueAccessor {
     const found = this.isSelected(item);
     const allowAdd =
       this._settings.limitSelection === -1 ||
-      (this._settings.limitSelection > 0 &&
-        this.selectedItems.length < this._settings.limitSelection);
+      (this._settings.limitSelection > 0 && this.selectedItems.length < this._settings.limitSelection);
     if (!found) {
       if (allowAdd) {
         this.addSelected(item);
@@ -141,10 +134,7 @@ export class MultiSelectComponent implements ControlValueAccessor {
     } else {
       this.removeSelected(item);
     }
-    if (
-      this._settings.singleSelection &&
-      this._settings.closeDropDownOnSelection
-    ) {
+    if (this._settings.singleSelection && this._settings.closeDropDownOnSelection) {
       this.closeDropdown();
     }
   }
@@ -161,20 +151,19 @@ export class MultiSelectComponent implements ControlValueAccessor {
               typeof firstItem === 'string'
                 ? new ListItem(firstItem)
                 : new ListItem({
-                  id: firstItem[this._settings.idField],
-                  text: firstItem[this._settings.textField]
-                })
+                    id: firstItem[this._settings.idField],
+                    text: firstItem[this._settings.textField]
+                  })
             ];
           }
         } catch (e) {
           // console.error(e.body.msg);
         }
       } else {
-        const _data = value.map(
-          (item: any) =>
-            typeof item === 'string'
-              ? new ListItem(item)
-              : new ListItem({
+        const _data = value.map((item: any) =>
+          typeof item === 'string'
+            ? new ListItem(item)
+            : new ListItem({
                 id: item[this._settings.idField],
                 text: item[this._settings.textField]
               })
@@ -331,7 +320,6 @@ export class MultiSelectComponent implements ControlValueAccessor {
   }
 
   closeDropdown() {
-
     this._settings.defaultOpen = false;
     // clear search text
     if (this._settings.clearSearchFilter) {

@@ -1,9 +1,9 @@
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { IDropdownSettings } from '../../../ng-multiselect-dropdown-angular7/src';
+import { IDropdownSettings } from '../../../ng-multiselect-dropdown/src';
 
 @Component({
-  selector: 'multiple-demo',
+  selector: 'app-multiple-demo',
   templateUrl: './multiple-demo.html'
 })
 export class MultipleDemoComponent implements OnInit {
@@ -17,7 +17,7 @@ export class MultipleDemoComponent implements OnInit {
   dropdownSettings: IDropdownSettings = {};
   htmlCode = `
     &lt;form [formGroup]="myForm"&gt;
-        &lt;ng-multiselect-dropdown-angular7
+        &lt;ng-multiselect-dropdown
             name="city"
             [placeholder]="'Select City'"
             [data]="cities"
@@ -25,7 +25,7 @@ export class MultipleDemoComponent implements OnInit {
             [disabled]="disabled"
             [settings]="dropdownSettings"
             (onSelect)="onItemSelect($event)"&gt;
-        &lt;/ng-multiselect-dropdown-angular7&gt;
+        &lt;/ng-multiselect-dropdown&gt;
    &lt;/form&gt;
 `;
   typescriptCode = `
@@ -33,7 +33,7 @@ export class MultipleDemoComponent implements OnInit {
     import { Component, OnInit } from '@angular/core';
 
     @Component({
-        selector: 'multiple-demo',
+        selector: 'app-multiple-demo',
         templateUrl: './multiple-demo.html'
     })
     export class MultipleDemoComponent implements OnInit {
@@ -91,7 +91,7 @@ export class MultipleDemoComponent implements OnInit {
     }
 `;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     this.cities = [
@@ -102,10 +102,7 @@ export class MultipleDemoComponent implements OnInit {
       { item_id: 5, item_text: 'Chennai' },
       { item_id: 6, item_text: 'Navsari' }
     ];
-    this.selectedItems = [
-      { item_id: 4, item_text: 'Pune' },
-      { item_id: 6, item_text: 'Navsari' }
-    ];
+    this.selectedItems = [{ item_id: 4, item_text: 'Pune' }, { item_id: 6, item_text: 'Navsari' }];
     this.dropdownSettings = {
       singleSelection: false,
       defaultOpen: false,
@@ -118,7 +115,7 @@ export class MultipleDemoComponent implements OnInit {
       allowSearchFilter: this.ShowFilter
     };
     this.myForm = this.fb.group({
-      city: [{ value: this.selectedItems, disabled: true }]
+      city: [{ value: this.selectedItems, disabled: false }]
     });
   }
 
